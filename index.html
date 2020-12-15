@@ -101,12 +101,11 @@
 
 
 <h2 id="-2"><a href="#-2" class="headerlink" title="[]"></a>[]</h2><p>选某个元素的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F;div[@class&#x3D;&quot;f6 text-gray mt-2&quot;] </span><br><span class="line"> </span><br><span class="line">选取所有class&#x3D;f6 text-gray mt-2的div</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F;div[@class&#x3D;&quot;f6 text-gray mt-2&quot;] </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">选取所有class&#x3D;f6 text-gray mt-2的div</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="-3"><a href="#-3" class="headerlink" title="*"></a>*</h2><p>任意单个元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div&#x2F;a&#x2F;*</span><br><span class="line"></span><br><span class="line">所有div,直接第一个子元素a,直接第一个子元素</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div&#x2F;a&#x2F;*</span><br><span class="line"></span><br><span class="line">所有div,直接第一个子元素a,直接第一个子元素</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -115,7 +114,7 @@
 
 
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[@class&#x3D;&#39;f6 text-gray mt-2&#39;]&#x2F;&#x2F;span[text()&#x3D;&quot;TypeScript&quot;]</span><br><span class="line">所有class是&#39;f6 text-gray mt-2&#39;的div,所有后代子子孙孙span,文本是TypeScript</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[@class&#x3D;&#39;f6 text-gray mt-2&#39;]&#x2F;&#x2F;span[text()&#x3D;&quot;TypeScript&quot;]</span><br><span class="line"></span><br><span class="line">所有class是&#39;f6 text-gray mt-2&#39;的div,所有后代子子孙孙span,文本是TypeScript</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="contains-属性-”值”"><a href="#contains-属性-”值”" class="headerlink" title="contains(属性,”值”)"></a>contains(属性,”值”)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div&#x2F;&#x2F;p[contains(text(),&quot;忘记密码&quot;)]</span><br><span class="line"></span><br><span class="line">所有div 所有子孙p,文本是忘记密码</span><br></pre></td></tr></table></figure>
@@ -123,10 +122,10 @@
 
 
 
-<h2 id="startwith-属性-”属性开头值”"><a href="#startwith-属性-”属性开头值”" class="headerlink" title="startwith(属性,”属性开头值”)"></a>startwith(属性,”属性开头值”)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[starts-with(text(),&#39;忘记密码&#39;)]</span><br><span class="line">所有div文本是忘记密码开头</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="startwith-属性-”属性开头值”"><a href="#startwith-属性-”属性开头值”" class="headerlink" title="startwith(属性,”属性开头值”)"></a>startwith(属性,”属性开头值”)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[starts-with(text(),&#39;忘记密码&#39;)]</span><br><span class="line"></span><br><span class="line">所有div文本是忘记密码开头</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[@class&#x3D;&quot;f6 text-gray mt-2&quot;]&#x2F;&#x2F;a[starts-with(@class,&quot;d-inline-block&quot;)]</span><br><span class="line">所有div,类名是f6 text-gray mt-2,所有子孙a,类名d-inline-block开头</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;div[@class&#x3D;&quot;f6 text-gray mt-2&quot;]&#x2F;&#x2F;a[starts-with(@class,&quot;d-inline-block&quot;)]</span><br><span class="line"></span><br><span class="line">所有div,类名是f6 text-gray mt-2,所有子孙a,类名d-inline-block开头</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
