@@ -15,7 +15,7 @@
 <meta property="og:description" content="&#x2F;&#x2F;所有子子孙孙 123&#x2F;&#x2F;div所有div    123&#x2F;&#x2F;div&#x2F;&#x2F;span所有div下面的所有span,包含所有子,孙,孙孙span     &#x2F;所有的直接第一级子元素 1234&#x2F;&#x2F;div&#x2F;span所有div下面的直接子span   []选某个元素的属性 1234 &#x2F;&#x2F;div[@cla">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-15T01:20:23.000Z">
-<meta property="article:modified_time" content="2020-12-15T03:28:24.712Z">
+<meta property="article:modified_time" content="2020-12-25T01:48:03.313Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Xpath">
 <meta name="twitter:card" content="summary">
@@ -140,8 +140,13 @@
 
 
 
-
-
+<h2 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h2><p>父（Parent）：每个元素以及属性都有一个父</p>
+<p>子（Children）：元素节点可有零个、一个或多个子</p>
+<p>同胞（Sibling）：拥有相同的父的节点</p>
+<p>先辈（Ancestor）：某节点的父、父的父</p>
+<p>后代（Descendant）：某个节点的子，子的子</p>
+<p>##谓语</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">放在[]中的几种查找方式写法如下：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ul&#x2F;li[1] , 表示选择 ul多个li子元素中的第一个</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ul&#x2F;li[last()]， 表示选择ul子元素中的最后一个li元素</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ul&#x2F;li[last()-1]， 表示选择ul子元素中的倒数第二个li元素</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ul&#x2F;li[position()&lt;3]，表示选取最前面2个属于ul元素的li子元素</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;a[@href] ，表示选取只要含有href属性的a元素</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;a[@href&#x3D;&#39;http:&#x2F;&#x2F;www.cnblogs.com&#x2F;jenniferhuang&#39;] ，属性值完全匹配</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;input[contains(@id,&#39;quantityTextBox&#39;)]， 当属性值部分匹配时，插入函数的写法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
