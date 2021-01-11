@@ -64,6 +64,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-移动App混合开发之Flutter篇-2-iOS工程配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-11T05:58:18.000Z" itemprop="datePublished">2021-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(2)---iOS工程配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>打开xcode新建iOS工程,然后关闭xcode<br>在iOS工程根目录执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod init</span><br><span class="line">pod install --no-repo-update --verbose</span><br></pre></td></tr></table></figure>
+
+<p>以后用xcworkspace打开工程,不要用xcodeproj了</p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140459.png" alt="xcworkspace"></p>
+<p>在 <code>Podfile</code> 中添加下面代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#这个路径指向flutter工程路径</span><br><span class="line">flutter_application_path &#x3D; &#39;..&#x2F;Master-Flutter&#x2F;master_flutter&#39;</span><br><span class="line">load File.join(flutter_application_path, &#39;.ios&#39;, &#39;Flutter&#39;, &#39;podhelper.rb&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>在target节点下添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install_all_flutter_pods(flutter_application_path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140857.png" alt="Podfile"></p>
+<p>目前iOS集成Flutter已经完成,寥寥数行代码而已.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckjs6799d00006hdn2kqba7ss" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-移动App混合开发之Flutter篇-1-Flutter工程配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
@@ -97,7 +146,13 @@
 <p>但是现在2021了,有机会还是用Flutter吧</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter create --template module master_flutter</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src=""></p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134652.png" alt="创建Flutter工程"></p>
+<p>创建好就完事了,其他暂时不用管.</p>
+<p>下面的flutter build aar在集成Android工程的时候才需要,目前把代码推到git仓库就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter build aar</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">➜  master_flutter git:(main) flutter build aar</span><br><span class="line">Running &quot;flutter pub get&quot; in master_flutter...                     765ms</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;... Done                     63.9s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;... Done                   49.8s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;... Done                   45.4s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line"></span><br><span class="line">Consuming the Module</span><br><span class="line">  1. Open &lt;host&gt;&#x2F;app&#x2F;build.gradle</span><br><span class="line">  2. Ensure you have the repositories configured, otherwise add them:</span><br><span class="line"></span><br><span class="line">      String storageUrl &#x3D; System.env.FLUTTER_STORAGE_BASE_URL ?: &quot;https:&#x2F;&#x2F;storage.googleapis.com&quot;</span><br><span class="line">      repositories &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;&#x2F;Users&#x2F;admin&#x2F;workspace&#x2F;native-mix-cross-platform&#x2F;flutter&#x2F;Master-Flutter&#x2F;master_flutter&#x2F;build&#x2F;host&#x2F;outputs&#x2F;repo&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;$storageUrl&#x2F;download.flutter.io&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  3. Make the host app depend on the Flutter module:</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">      debugImplementation &#39;com.example.master_flutter:flutter_debug:1.0&#39;</span><br><span class="line">      profileImplementation &#39;com.example.master_flutter:flutter_profile:1.0&#39;</span><br><span class="line">      releaseImplementation &#39;com.example.master_flutter:flutter_release:1.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  4. Add the &#96;profile&#96; build type:</span><br><span class="line"></span><br><span class="line">    android &#123;</span><br><span class="line">      buildTypes &#123;</span><br><span class="line">        profile &#123;</span><br><span class="line">          initWith debug</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">To learn more, visit https:&#x2F;&#x2F;flutter.dev&#x2F;go&#x2F;build-aar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134800.png" alt="flutter build aar"></p>
 
       
     </div>
@@ -633,56 +688,12 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/19/hello-world/" class="article-date">
-  <time datetime="2020-11-19T01:36:20.860Z" itemprop="datePublished">2020-11-19</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h3 id="black-bao-真棒"><a href="#black-bao-真棒" class="headerlink" title="black bao 真棒"></a>black bao 真棒</h3><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/19/hello-world/" data-id="ckho65jad00002ldn6fsx2tbj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -727,6 +738,10 @@
       <ul>
         
           <li>
+            <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(2)---iOS工程配置</a>
+          </li>
+        
+          <li>
             <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(1)---Flutter工程配置</a>
           </li>
         
@@ -740,10 +755,6 @@
         
           <li>
             <a href="/2020/11/24/flutter%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">flutter相关命令</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/23/%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84dart%E5%92%8Cflutter-API/">有意思的dart和flutter API</a>
           </li>
         
       </ul>

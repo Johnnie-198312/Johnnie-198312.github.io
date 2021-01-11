@@ -5,19 +5,22 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>移动App混合开发之Flutter篇(2)---iOS工程配置 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. black">
+  <meta name="description" content="打开xcode新建iOS工程,然后关闭xcode在iOS工程根目录执行 12pod initpod install --no-repo-update --verbose  以后用xcworkspace打开工程,不要用xcodeproj了  在 Podfile 中添加下面代码 123#这个路径指向flutter工程路径flutter_application_path &#x3D; &#39;..&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2020/11/19/hello-world/index.html">
+<meta property="og:title" content="移动App混合开发之Flutter篇(2)---iOS工程配置">
+<meta property="og:url" content="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. black">
+<meta property="og:description" content="打开xcode新建iOS工程,然后关闭xcode在iOS工程根目录执行 12pod initpod install --no-repo-update --verbose  以后用xcworkspace打开工程,不要用xcodeproj了  在 Podfile 中添加下面代码 123#这个路径指向flutter工程路径flutter_application_path &#x3D; &#39;..&amp;#">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-19T01:36:20.860Z">
-<meta property="article:modified_time" content="2020-11-26T06:00:29.210Z">
+<meta property="og:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140459.png">
+<meta property="og:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140857.png">
+<meta property="article:published_time" content="2021-01-11T05:58:18.000Z">
+<meta property="article:modified_time" content="2021-01-11T06:12:45.386Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140459.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-移动App混合开发之Flutter篇-2-iOS工程配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/19/hello-world/" class="article-date">
-  <time datetime="2020-11-19T01:36:20.860Z" itemprop="datePublished">2020-11-19</time>
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-11T05:58:18.000Z" itemprop="datePublished">2021-01-11</time>
 </a>
     
   </div>
@@ -80,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      移动App混合开发之Flutter篇(2)---iOS工程配置
     </h1>
   
 
@@ -88,24 +91,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h3 id="black-bao-真棒"><a href="#black-bao-真棒" class="headerlink" title="black bao 真棒"></a>black bao 真棒</h3><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>打开xcode新建iOS工程,然后关闭xcode<br>在iOS工程根目录执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod init</span><br><span class="line">pod install --no-repo-update --verbose</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>以后用xcworkspace打开工程,不要用xcodeproj了</p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140459.png" alt="xcworkspace"></p>
+<p>在 <code>Podfile</code> 中添加下面代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#这个路径指向flutter工程路径</span><br><span class="line">flutter_application_path &#x3D; &#39;..&#x2F;Master-Flutter&#x2F;master_flutter&#39;</span><br><span class="line">load File.join(flutter_application_path, &#39;.ios&#39;, &#39;Flutter&#39;, &#39;podhelper.rb&#39;)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>在target节点下添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install_all_flutter_pods(flutter_application_path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-140857.png" alt="Podfile"></p>
+<p>目前iOS集成Flutter已经完成,寥寥数行代码而已.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/19/hello-world/" data-id="ckho65jad00002ldn6fsx2tbj" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckjs6799d00006hdn2kqba7ss" class="article-share-link">Share</a>
       
       
     </footer>
@@ -114,15 +117,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          用markdown记录工作中不机密的内容
-        
-      </div>
-    </a>
   
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动App混合开发之Flutter篇(1)---Flutter工程配置</div>
+    </a>
   
 </nav>
 
