@@ -5,22 +5,21 @@
   
 
   
-  <title>移动App混合开发之Flutter篇(1)---Flutter工程配置 | Hexo</title>
+  <title>移动App混合开发之Flutter篇(3)---Android工程配置 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开新坑,来讲讲混合开发怎么搞. 目前我们公司用的weex,在weex第一个大版本就入坑了 123456 &quot;version&quot;: &quot;0.12.2&quot;,  0.12.0Released in Jun 9, 2017Source | Signature | Checksum  为什么敢这么激进? 1领导强力 2 iOS和Android开发水平高,能搞定一切weex搞不">
+  <meta name="description" content="首先要保证谷歌服务畅通访问,这个是程序员基本技能. 首先到Flutter工程里面执行 12flutter build aar    1234567891011121314151617181920212223242526272829303132333435363738394041424344454647master_flutter git:(main) flutter build aarRunnin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动App混合开发之Flutter篇(1)---Flutter工程配置">
-<meta property="og:url" content="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="移动App混合开发之Flutter篇(3)---Android工程配置">
+<meta property="og:url" content="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="开新坑,来讲讲混合开发怎么搞. 目前我们公司用的weex,在weex第一个大版本就入坑了 123456 &quot;version&quot;: &quot;0.12.2&quot;,  0.12.0Released in Jun 9, 2017Source | Signature | Checksum  为什么敢这么激进? 1领导强力 2 iOS和Android开发水平高,能搞定一切weex搞不">
+<meta property="og:description" content="首先要保证谷歌服务畅通访问,这个是程序员基本技能. 首先到Flutter工程里面执行 12flutter build aar    1234567891011121314151617181920212223242526272829303132333435363738394041424344454647master_flutter git:(main) flutter build aarRunnin">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134652.png">
-<meta property="og:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134800.png">
-<meta property="article:published_time" content="2021-01-11T05:16:18.000Z">
-<meta property="article:modified_time" content="2021-01-11T08:10:16.593Z">
+<meta property="og:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png">
+<meta property="article:published_time" content="2021-01-11T07:59:35.000Z">
+<meta property="article:modified_time" content="2021-01-11T08:10:58.737Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134652.png">
+<meta name="twitter:image" content="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-移动App混合开发之Flutter篇-1-Flutter工程配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-移动App混合开发之Flutter篇-3-Android工程配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2021-01-11T05:16:18.000Z" itemprop="datePublished">2021-01-11</time>
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-11T07:59:35.000Z" itemprop="datePublished">2021-01-11</time>
 </a>
     
   </div>
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      移动App混合开发之Flutter篇(1)---Flutter工程配置
+      移动App混合开发之Flutter篇(3)---Android工程配置
     </h1>
   
 
@@ -91,32 +90,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开新坑,来讲讲混合开发怎么搞.</p>
-<p>目前我们公司用的weex,在weex第一个大版本就入坑了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &quot;version&quot;: &quot;0.12.2&quot;,</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">0.12.0</span><br><span class="line">Released in Jun 9, 2017</span><br><span class="line">Source | Signature | Checksum</span><br></pre></td></tr></table></figure>
-
-<p>为什么敢这么激进?</p>
-<p>1领导强力</p>
-<p>2 iOS和Android开发水平高,能搞定一切weex搞不定的</p>
-<p>3 web开发人员水平高</p>
-<p>但是现在2021了,有机会还是用Flutter吧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter create --template module master_flutter</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134652.png" alt="创建Flutter工程"></p>
-<p>创建好就完事了,就一行命令搞定,其他暂时不用管.</p>
-<p>下面的flutter build aar在集成Android工程的时候才需要,目前把代码推到git仓库就行了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter build aar</span><br></pre></td></tr></table></figure>
-
+        <p>首先要保证谷歌服务畅通访问,这个是程序员基本技能.</p>
+<p>首先到Flutter工程里面执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter build aar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">master_flutter git:(main) flutter build aar</span><br><span class="line">Running &quot;flutter pub get&quot; in master_flutter...                     765ms</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;... Done                     63.9s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;... Done                   49.8s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;... Done                   45.4s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line"></span><br><span class="line">Consuming the Module</span><br><span class="line">  1. Open &lt;host&gt;&#x2F;app&#x2F;build.gradle</span><br><span class="line">  2. Ensure you have the repositories configured, otherwise add them:</span><br><span class="line"></span><br><span class="line">      String storageUrl &#x3D; System.env.FLUTTER_STORAGE_BASE_URL ?: &quot;https:&#x2F;&#x2F;storage.googleapis.com&quot;</span><br><span class="line">      repositories &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;&#x2F;Users&#x2F;admin&#x2F;workspace&#x2F;native-mix-cross-platform&#x2F;flutter&#x2F;Master-Flutter&#x2F;master_flutter&#x2F;build&#x2F;host&#x2F;outputs&#x2F;repo&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;$storageUrl&#x2F;download.flutter.io&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  3. Make the host app depend on the Flutter module:</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">      debugImplementation &#39;com.example.master_flutter:flutter_debug:1.0&#39;</span><br><span class="line">      profileImplementation &#39;com.example.master_flutter:flutter_profile:1.0&#39;</span><br><span class="line">      releaseImplementation &#39;com.example.master_flutter:flutter_release:1.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  4. Add the &#96;profile&#96; build type:</span><br><span class="line"></span><br><span class="line">    android &#123;</span><br><span class="line">      buildTypes &#123;</span><br><span class="line">        profile &#123;</span><br><span class="line">          initWith debug</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">To learn more, visit https:&#x2F;&#x2F;flutter.dev&#x2F;go&#x2F;build-aar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-134800.png" alt="flutter build aar"></p>
+
+<p>如何新建Flutter工程,请点击 移动App混合开发之Flutter篇-1-Flutter工程配置 <a target="_blank" rel="noopener" href="https://johnnie-198312.github.io/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇-1-Flutter工程配置</a> 构建的。</p>
+<p>新建Android工程</p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png" alt="ViewController.m"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckjs5d57o0000yqdn442i4h64" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckjsaeex90000y7dn8ez07ud9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -125,19 +114,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          移动App混合开发之Flutter篇(2)---iOS工程配置
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/15/Xpath%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Xpath笔记</div>
+      <div class="article-nav-title">移动App混合开发之Flutter篇(2)---iOS工程配置</div>
     </a>
   
 </nav>
