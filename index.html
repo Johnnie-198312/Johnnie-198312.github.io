@@ -104,6 +104,9 @@
 <p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-161303.png" alt="Module.gradle配置"></p>
 <h1 id="在-Android-应用中添加-Flutter-页面"><a href="#在-Android-应用中添加-Flutter-页面" class="headerlink" title="在 Android 应用中添加 Flutter 页面"></a>在 Android 应用中添加 Flutter 页面</h1><p>AndroidManifest.xml注册activity,这是Android基础知识,建议去youtube上看一遍Android教程,虽然不写Android,但是基本常识还是要知道的.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">  android:name&#x3D;&quot;io.flutter.embedding.android.FlutterActivity&quot;</span><br><span class="line">  android:theme&#x3D;&quot;@style&#x2F;LaunchTheme&quot;</span><br><span class="line">  android:configChanges&#x3D;&quot;orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode&quot;</span><br><span class="line">  android:hardwareAccelerated&#x3D;&quot;true&quot;</span><br><span class="line">  android:windowSoftInputMode&#x3D;&quot;adjustResize&quot;</span><br><span class="line">  &#x2F;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png" alt="activity"></p>
 <p>这个时候 android:theme=”@style/LaunchTheme” 会爆红</p>
 <p>别紧张,src/main/res/values/strings.xml里面新增一个style</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;style name&#x3D;&quot;LaunchTheme&quot; parent&#x3D;&quot;@android:style&#x2F;Theme.Black.NoTitleBar&quot;&gt;</span><br><span class="line">        &lt;!-- Show a splash screen on the activity. Automatically removed when</span><br><span class="line">             Flutter draws its first frame --&gt;</span><br><span class="line">&lt;!--        &lt;item name&#x3D;&quot;android:windowBackground&quot;&gt;@drawable&#x2F;launch_background&lt;&#x2F;item&gt;--&gt;</span><br><span class="line">        &lt;item name&#x3D;&quot;android:windowFullscreen&quot;&gt;true&lt;&#x2F;item&gt;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -119,8 +122,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line">import io.flutter.embedding.android.FlutterActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-174301.png" alt="ViewController.m"></p>
-<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png" alt="ViewController.m"></p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/Jietu20210111-174532.jpg" alt="ViewController.m"></p>
 
       
     </div>
