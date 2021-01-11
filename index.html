@@ -64,6 +64,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-移动App混合开发之Flutter篇-1-Flutter工程配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-11T05:16:18.000Z" itemprop="datePublished">2021-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(1)---Flutter工程配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开新坑,来讲讲混合开发怎么搞.</p>
+<p>目前我们公司用的weex,在weex第一个大版本就入坑了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &quot;version&quot;: &quot;0.12.2&quot;,</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">0.12.0</span><br><span class="line">Released in Jun 9, 2017</span><br><span class="line">Source | Signature | Checksum</span><br></pre></td></tr></table></figure>
+
+<p>为什么敢这么激进?</p>
+<p>1领导强力</p>
+<p>2 iOS和Android开发水平高,能搞定一切weex搞不定的</p>
+<p>3 web开发人员水平高</p>
+<p>但是现在2021了,有机会还是用Flutter吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter create --template module master_flutter</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckjs5d57o0000yqdn442i4h64" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Xpath笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/15/Xpath%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -286,7 +334,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">onPressed: () async &#123;</span><br><span class="line">              </span><br><span class="line">                 try &#123;</span><br><span class="line">                   await todos.editTodo(</span><br><span class="line">                     todoIndex,</span><br><span class="line">                     todo.thing,</span><br><span class="line">                     todo.finish,</span><br><span class="line">                   );</span><br><span class="line">                   Navigator.pop(context);</span><br><span class="line">                 &#125; catch (e) &#123;</span><br><span class="line">                   Scaffold.of(context).showSnackBar(</span><br><span class="line">                     SnackBar(content: Text(&#39;修改代办失败了，请重试。&#39;)),</span><br><span class="line">                   );</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;,</span><br></pre></td></tr></table></figure>
 
 <p><strong>end</strong></p>
-<h3 id="fluro-路由库-很流行"><a href="#fluro-路由库-很流行" class="headerlink" title="fluro 路由库 很流行"></a>fluro 路由库 很流行</h3>
+<h3 id="fluro-路由库-很流行"><a href="#fluro-路由库-很流行" class="headerlink" title="fluro 路由库 很流行"></a>fluro 路由库 很流行</h3><h3 id="ExpansionTile-Widget是一个可以展开闭合的组件"><a href="#ExpansionTile-Widget是一个可以展开闭合的组件" class="headerlink" title="ExpansionTile Widget是一个可以展开闭合的组件"></a>ExpansionTile Widget是一个可以展开闭合的组件</h3><h3 id="AnimatedCrossFade可以自己实行更好的展开折叠"><a href="#AnimatedCrossFade可以自己实行更好的展开折叠" class="headerlink" title="AnimatedCrossFade可以自己实行更好的展开折叠"></a>AnimatedCrossFade可以自己实行更好的展开折叠</h3><p>高水平的掘金博客</p>
+<p>吉哈达<a target="_blank" rel="noopener" href="https://juejin.cn/user/747323637640237"> https://juejin.cn/user/747323637640237</a></p>
+<p>Nayuta  <a target="_blank" rel="noopener" href="https://juejin.cn/user/4309694831660711/posts">https://juejin.cn/user/4309694831660711/posts</a></p>
+<p>张风捷特烈 <a target="_blank" rel="noopener" href="https://juejin.cn/user/149189281194766">https://juejin.cn/user/149189281194766</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -662,7 +714,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
     </div>
   </div>
 
@@ -673,6 +725,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(1)---Flutter工程配置</a>
+          </li>
         
           <li>
             <a href="/2020/12/15/Xpath%E7%AC%94%E8%AE%B0/">Xpath笔记</a>
@@ -690,10 +746,6 @@
             <a href="/2020/11/23/%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84dart%E5%92%8Cflutter-API/">有意思的dart和flutter API</a>
           </li>
         
-          <li>
-            <a href="/2020/11/23/iOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%BC%80%E6%8C%87%E5%AE%9A%E6%A8%A1%E6%8B%9F%E5%99%A8/">iOS命令行打开指定模拟器</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -706,7 +758,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2021 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
