@@ -64,6 +64,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-有意思的dart和flutter-API" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/23/%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84dart%E5%92%8Cflutter-API/" class="article-date">
+  <time datetime="2020-11-23T07:34:04.000Z" itemprop="datePublished">2020-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/23/%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84dart%E5%92%8Cflutter-API/">有意思的dart和flutter API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>List.fold reduce where</p>
+<p><a target="_blank" rel="noopener" href="https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2">https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2</a></p>
+<p>SwitchListTile</p>
+<p><a target="_blank" rel="noopener" href="https://jsonbox.io/">https://jsonbox.io/</a></p>
+<p>List<E>.from(<br>Iterable elements,<br>{bool growable: true}<br>)</p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p><strong>begin</strong></p>
+<p>网络请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;List&gt; getTodos() async &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      Response response &#x3D; await _dio.get(&#39;&#x2F;todos&#39;);</span><br><span class="line"></span><br><span class="line">      final list &#x3D; response.data as List;</span><br><span class="line">      _items &#x3D; List&lt;Todo&gt;.from(list.map((i) &#x3D;&gt; Todo.fromJson(i)).toList());</span><br><span class="line"></span><br><span class="line">      return items;</span><br><span class="line">    &#125; on DioError catch (err) &#123;</span><br><span class="line">      throw err;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>UI界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">body: FutureBuilder(</span><br><span class="line">      future: Provider.of&lt;Todos&gt;(context).getTodos(),  &#x2F;&#x2F;_fetchNetworkCall, &#x2F;&#x2F; async work 返回形如 Future&lt;Model&gt;</span><br><span class="line">      builder: (context, snapshot) &#123;</span><br><span class="line">        switch (snapshot.connectionState) &#123;</span><br><span class="line">          case ConnectionState.none:</span><br><span class="line">            return Text(&#39;Press button to start.&#39;);</span><br><span class="line">          case ConnectionState.active:</span><br><span class="line">          case ConnectionState.waiting:</span><br><span class="line">            return Center(child: CircularProgressIndicator());</span><br><span class="line">          case ConnectionState.done:</span><br><span class="line">            if (snapshot.hasError) &#123;</span><br><span class="line">              print(snapshot.error);</span><br><span class="line">              return Center(</span><br><span class="line">                child: Text(</span><br><span class="line">                  &#39;出错了，请重试&#39;,</span><br><span class="line">                  style: TextStyle(fontSize: 18.0, color: Colors.red),</span><br><span class="line">                ),</span><br><span class="line">              );</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Consumer里面可以写方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">return Consumer&lt;Todos&gt;(</span><br><span class="line">    builder: (_, todos, child) &#123;</span><br><span class="line">      _addTodo() async &#123;</span><br><span class="line">       await _fetchNetworkCall();</span><br><span class="line">      &#125;</span><br><span class="line">     return FloatingActionButton(</span><br><span class="line">     onPressed: _addTodo,</span><br><span class="line">     ) </span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+
+<p>onpress方法调用异步方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">onPressed: () async &#123;</span><br><span class="line">              </span><br><span class="line">                 try &#123;</span><br><span class="line">                   await todos.editTodo(</span><br><span class="line">                     todoIndex,</span><br><span class="line">                     todo.thing,</span><br><span class="line">                     todo.finish,</span><br><span class="line">                   );</span><br><span class="line">                   Navigator.pop(context);</span><br><span class="line">                 &#125; catch (e) &#123;</span><br><span class="line">                   Scaffold.of(context).showSnackBar(</span><br><span class="line">                     SnackBar(content: Text(&#39;修改代办失败了，请重试。&#39;)),</span><br><span class="line">                   );</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;,</span><br></pre></td></tr></table></figure>
+
+<p><strong>end</strong></p>
+<h3 id="fluro-路由库-很流行"><a href="#fluro-路由库-很流行" class="headerlink" title="fluro 路由库 很流行"></a>fluro 路由库 很流行</h3><h3 id="ExpansionTile-Widget是一个可以展开闭合的组件"><a href="#ExpansionTile-Widget是一个可以展开闭合的组件" class="headerlink" title="ExpansionTile Widget是一个可以展开闭合的组件"></a>ExpansionTile Widget是一个可以展开闭合的组件</h3><h3 id="AnimatedCrossFade可以自己实行更好的展开折叠"><a href="#AnimatedCrossFade可以自己实行更好的展开折叠" class="headerlink" title="AnimatedCrossFade可以自己实行更好的展开折叠"></a>AnimatedCrossFade可以自己实行更好的展开折叠</h3><p>高水平的掘金博客</p>
+<p>吉哈达<a target="_blank" rel="noopener" href="https://juejin.cn/user/747323637640237"> https://juejin.cn/user/747323637640237</a></p>
+<p>Nayuta  <a target="_blank" rel="noopener" href="https://juejin.cn/user/4309694831660711/posts">https://juejin.cn/user/4309694831660711/posts</a></p>
+<p>张风捷特烈 <a target="_blank" rel="noopener" href="https://juejin.cn/user/149189281194766">https://juejin.cn/user/149189281194766</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/23/%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84dart%E5%92%8Cflutter-API/" data-id="ckhvj3jgj0001budn1gbu4tdg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-iOS命令行打开指定模拟器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/23/iOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%BC%80%E6%8C%87%E5%AE%9A%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="article-date">
@@ -395,6 +457,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/16/flutter-test/">flutter test</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/16/hello-world/">Hello World</a>
           </li>
         
@@ -408,10 +474,6 @@
         
           <li>
             <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(3)---Android工程配置</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(2)---iOS工程配置</a>
           </li>
         
       </ul>
