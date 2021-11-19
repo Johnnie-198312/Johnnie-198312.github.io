@@ -64,6 +64,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Centos-7-docker-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/30/Centos-7-docker-ftp/" class="article-date">
+  <time datetime="2021-09-30T08:43:38.000Z" itemprop="datePublished">2021-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/30/Centos-7-docker-ftp/">Centos 7 docker ftp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br><span class="line"></span><br><span class="line">docker pull vsftpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="docker启动nginx容器，命名为test"><a href="#docker启动nginx容器，命名为test" class="headerlink" title="docker启动nginx容器，命名为test"></a>docker启动nginx容器，命名为test</h1><h3 id="nginx配置default-conf"><a href="#nginx配置default-conf" class="headerlink" title="nginx配置default.conf"></a>nginx配置default.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">cat default.conf</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    listen  [::]:80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    #access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root   &#x2F;mnt&#x2F;data;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #error_page  404              &#x2F;404.html;</span><br><span class="line"></span><br><span class="line">    # redirect server error pages to the static page &#x2F;50x.html</span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">        root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">    #</span><br><span class="line">    #location ~ \.php$ &#123;</span><br><span class="line">    #    proxy_pass   http:&#x2F;&#x2F;127.0.0.1;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">    #</span><br><span class="line">    #location ~ \.php$ &#123;</span><br><span class="line">    #    root           html;</span><br><span class="line">    #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">    #    fastcgi_index  index.php;</span><br><span class="line">    #    fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;</span><br><span class="line">    #    include        fastcgi_params;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">    # deny access to .htaccess files, if Apache&#39;s document root</span><br><span class="line">    # concurs with nginx&#39;s one</span><br><span class="line">    #</span><br><span class="line">    #location ~ &#x2F;\.ht &#123;</span><br><span class="line">    #    deny  all;</span><br><span class="line">    #&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="nginx配置nginx-conf"><a href="#nginx配置nginx-conf" class="headerlink" title="nginx配置nginx.conf"></a>nginx配置nginx.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cat nginx.conf</span><br><span class="line"></span><br><span class="line">user root;</span><br><span class="line">worker_processes  auto;</span><br><span class="line"></span><br><span class="line">error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log notice;</span><br><span class="line">pid        &#x2F;var&#x2F;run&#x2F;nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       &#x2F;etc&#x2F;nginx&#x2F;mime.types;</span><br><span class="line">    default_type  application&#x2F;octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span><br><span class="line">                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span><br><span class="line">                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</span><br><span class="line"></span><br><span class="line">    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="docker启动nginx"><a href="#docker启动nginx" class="headerlink" title="docker启动nginx"></a>docker启动nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 \</span><br><span class="line">--name nginx --net host \</span><br><span class="line">-v &#x2F;usr&#x2F;docker&#x2F;nginx&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf \</span><br><span class="line">-v &#x2F;usr&#x2F;docker&#x2F;nginx&#x2F;conf.d&#x2F;default.conf:&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf \</span><br><span class="line">-v &#x2F;usr&#x2F;docker&#x2F;nginx&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;usr&#x2F;docker&#x2F;vsftpd:&#x2F;mnt&#x2F;data \</span><br><span class="line">-v &#x2F;usr&#x2F;docker&#x2F;nginx&#x2F;logs:&#x2F;var&#x2F;log&#x2F;nginx \</span><br><span class="line">--privileged&#x3D;true --restart&#x3D;always nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="docker启动vsftpd"><a href="#docker启动vsftpd" class="headerlink" title="docker启动vsftpd"></a>docker启动vsftpd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v &#x2F;root&#x2F;docker&#x2F;vsftpd:&#x2F;home&#x2F;vsftpd \</span><br><span class="line">-p 20:20 -p 21:21 -p  21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;testgs \</span><br><span class="line">-e PASV_ADDRESS&#x3D;104.225.145.216 \</span><br><span class="line">-e PASV_MIN_PORT&#x3D;21100 -e PASV_MAX_PORT&#x3D;21110 \</span><br><span class="line">--name vsftpd --restart&#x3D;always fauria&#x2F;vsftpd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>秘诀在于 ftp的被映射出来的文件路径 /root/dockers/vsftpd:/home/vsftpd<br>刚好和nginx的  root   /mnt/data映射出来的路径一致<br>访问nginx的root，就相当于访问了ftp的文件目录</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/30/Centos-7-docker-ftp/" data-id="ckw6bwmgf0000j9y23ewi244l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ftp/" rel="tag">ftp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/09/22/hello-world/" class="article-date">
@@ -1036,49 +1087,6 @@
 
 
   
-    <article id="post-flutter相关命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/24/flutter%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2020-11-24T02:11:55.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/flutter%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">flutter相关命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>查看所有连接的设备</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter devices</span><br></pre></td></tr></table></figure>
-
-<p>查看所有模拟器,并运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">flutter emulators</span><br><span class="line">2 available emulators:</span><br><span class="line"></span><br><span class="line">apple_ios_simulator • iOS Simulator   • Apple  • ios</span><br><span class="line">Nexus_5X_API_27     • Nexus 5X API 27 • Google • android</span><br><span class="line"></span><br><span class="line">To run an emulator, run &#39;flutter emulators --launch &lt;emulator id&gt;&#39;.</span><br><span class="line">To create a new emulator, run &#39;flutter emulators --create [--name xyz]&#39;.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flutter emulators --launch Nexus_5X_API_27</span><br><span class="line"></span><br><span class="line">flutter run</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/24/flutter%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" data-id="ckto3u2030004fz0c311xevsw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -1097,7 +1105,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" rel="tag">Java正则实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xpath/" rel="tag">Xpath</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastlane/" rel="tag">fastlane</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir/" rel="tag">fir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-hello-world/" rel="tag">hexo hello world</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E6%95%99%E7%A8%8B/" rel="tag">hexo教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-flutter/" rel="tag">iOS flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgyer/" rel="tag">pgyer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xcodeproj/" rel="tag">xcodeproj</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" rel="tag">表单验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" rel="tag">Java正则实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xpath/" rel="tag">Xpath</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastlane/" rel="tag">fastlane</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir/" rel="tag">fir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">ftp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-hello-world/" rel="tag">hexo hello world</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E6%95%99%E7%A8%8B/" rel="tag">hexo教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-flutter/" rel="tag">iOS flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgyer/" rel="tag">pgyer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xcodeproj/" rel="tag">xcodeproj</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" rel="tag">表单验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
     </div>
   </div>
 
@@ -1107,7 +1115,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">Java正则实现</a> <a href="/tags/Xpath/" style="font-size: 10px;">Xpath</a> <a href="/tags/fastlane/" style="font-size: 10px;">fastlane</a> <a href="/tags/fir/" style="font-size: 10px;">fir</a> <a href="/tags/hexo-hello-world/" style="font-size: 10px;">hexo hello world</a> <a href="/tags/hexo%E6%95%99%E7%A8%8B/" style="font-size: 10px;">hexo教程</a> <a href="/tags/iOS-flutter/" style="font-size: 10px;">iOS flutter</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/pgyer/" style="font-size: 10px;">pgyer</a> <a href="/tags/xcodeproj/" style="font-size: 10px;">xcodeproj</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">表单验证</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a>
+      <a href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">Java正则实现</a> <a href="/tags/Xpath/" style="font-size: 10px;">Xpath</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/fastlane/" style="font-size: 10px;">fastlane</a> <a href="/tags/fir/" style="font-size: 10px;">fir</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/hexo-hello-world/" style="font-size: 10px;">hexo hello world</a> <a href="/tags/hexo%E6%95%99%E7%A8%8B/" style="font-size: 10px;">hexo教程</a> <a href="/tags/iOS-flutter/" style="font-size: 10px;">iOS flutter</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/pgyer/" style="font-size: 10px;">pgyer</a> <a href="/tags/xcodeproj/" style="font-size: 10px;">xcodeproj</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">表单验证</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a>
     </div>
   </div>
 
@@ -1129,6 +1137,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/30/Centos-7-docker-ftp/">Centos 7 docker ftp</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/22/hello-world/">Hello World</a>
           </li>
         
@@ -1142,10 +1154,6 @@
         
           <li>
             <a href="/2021/03/19/docker%E7%AC%94%E8%AE%B0/">docker笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
           </li>
         
       </ul>
