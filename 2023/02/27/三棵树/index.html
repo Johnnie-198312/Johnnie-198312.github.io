@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>三棵树 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="widget翻译12345678910111213141516171819202122232425262728293031323334Describes the configuration for an [Element].Widgets are the central class hierarchy in the Flutter framework. A widgetis an immutabl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三棵树">
+<meta property="og:url" content="http://example.com/2023/02/27/%E4%B8%89%E6%A3%B5%E6%A0%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="widget翻译12345678910111213141516171819202122232425262728293031323334Describes the configuration for an [Element].Widgets are the central class hierarchy in the Flutter framework. A widgetis an immutabl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-27T08:42:45.000Z">
+<meta property="article:modified_time" content="2023-02-27T08:44:13.216Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-三棵树" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/27/%E4%B8%89%E6%A3%B5%E6%A0%91/" class="article-date">
+  <time datetime="2023-02-27T08:42:45.000Z" itemprop="datePublished">2023-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      三棵树
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="widget翻译"><a href="#widget翻译" class="headerlink" title="widget翻译"></a>widget翻译</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Describes the configuration for an [Element].</span><br><span class="line"></span><br><span class="line">Widgets are the central class hierarchy in the Flutter framework. A widget</span><br><span class="line">is an immutable description of part of a user interface. Widgets can be</span><br><span class="line">inflated into elements, which manage the underlying render tree.</span><br><span class="line"></span><br><span class="line">Widgets themselves have no mutable state (all their fields must be final).</span><br><span class="line">If you wish to associate mutable state with a widget, consider using a</span><br><span class="line">[StatefulWidget], which creates a [State] object (via</span><br><span class="line">[StatefulWidget.createState]) whenever it is inflated into an element and</span><br><span class="line">incorporated into the tree.</span><br><span class="line"></span><br><span class="line">A given widget can be included in the tree zero or more times. In particular</span><br><span class="line">a given widget can be placed in the tree multiple times. Each time a widget</span><br><span class="line">is placed in the tree, it is inflated into an [Element], which means a</span><br><span class="line">widget that is incorporated into the tree multiple times will be inflated</span><br><span class="line">multiple times.</span><br><span class="line"></span><br><span class="line">The [key] property controls how one widget replaces another widget in the</span><br><span class="line">tree. If the [runtimeType] and [key] properties of the two widgets are</span><br><span class="line">[operator&#x3D;&#x3D;], respectively, then the new widget replaces the old widget by</span><br><span class="line">updating the underlying element (i.e., by calling [Element.update] with the</span><br><span class="line">new widget). Otherwise, the old element is removed from the tree, the new</span><br><span class="line">widget is inflated into an element, and the new element is inserted into the</span><br><span class="line">tree.</span><br><span class="line"></span><br><span class="line">See also:</span><br><span class="line"></span><br><span class="line"> * [StatefulWidget] and [State], for widgets that can build differently</span><br><span class="line">   several times over their lifetime.</span><br><span class="line"> * [InheritedWidget], for widgets that introduce ambient state that can</span><br><span class="line">   be read by descendant widgets.</span><br><span class="line"> * [StatelessWidget], for widgets that always build the same way given a</span><br><span class="line">   particular configuration and ambient state.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">好的，我已经翻译了您的英文段落。请看下面的汉语版本。😊</span><br><span class="line"></span><br><span class="line">Okay, I have translated your English paragraph. Please see the Chinese version below. 😊</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; 描述了[Element]的配置。</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; Widgets是Flutter框架中的核心类层次结构。一个widget是用户界面部分的不可变描述。Widgets可以被扩展成elements，它们管理底层的渲染树。</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; Widgets本身没有可变状态（它们的所有字段都必须是final）。如果您想要将可变状态与widget关联起来，请考虑使用[StatefulWidget]，它在每次被扩展成element并加入到树中时，都会创建一个[State]对象（通过[StatefulWidget.createState]）。</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; 一个给定的widget可以被包含在树中零次或多次。特别地，一个给定的widget可以被放置在树中多次。每次一个widget被放置在树中时，它都会被扩展成一个[Element]，这意味着一个被加入到树中多次的widget将会被扩展多次。</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; [key]属性控制了一个widget如何替换树中的另一个widget。如果两个widget的[runtimeType]和[key]属性分别是[operator&#x3D;&#x3D;]，那么新的widget就会通过更新底层的element（即通过调用[Element.update]并传入新的widget）来替换旧的widget。否则，旧的element就会从树中移除，新的widget就会被扩展成一个element，并且新的element就会插入到树中。</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; 另请参阅：</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F;  * [StatefulWidget]和[State]，用于可以在其生命周期内以不同方式构建多次的widgets。</span><br><span class="line">&#x2F;&#x2F;&#x2F;  * [InheritedWidget]，用于引入可以被后代widgets读取的环境状态。</span><br><span class="line">&#x2F;&#x2F;&#x2F;  * [StatelessWidget]，用于始终以相同方式构建（给定特定配置和环境状态）的widgets。</span><br><span class="line"></span><br><span class="line">Source: Conversation with Bing, 2&#x2F;27&#x2F;2023(1) . https:&#x2F;&#x2F;bing.com&#x2F;search?q&#x3D;translate+to+Chinese Accessed 2&#x2F;27&#x2F;2023.</span><br><span class="line">(2) Google Translate. https:&#x2F;&#x2F;translate.google.com&#x2F;;) Accessed 2&#x2F;27&#x2F;2023.</span><br><span class="line">(3) Google 翻譯. https:&#x2F;&#x2F;translate.google.com&#x2F;?hl&#x3D;zh-TW Accessed 2&#x2F;27&#x2F;2023.</span><br><span class="line">(4) DeepL Translate: The world&#39;s most accurate translator. https:&#x2F;&#x2F;www.deepl.com&#x2F;en&#x2F;translator-mobile Accessed 2&#x2F;27&#x2F;2023.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/27/%E4%B8%89%E6%A3%B5%E6%A0%91/" data-id="cliled30q0001yn0c4cxv5jel" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/07/fluwx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          fluwx
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/06/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">代码片段</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" rel="tag">Java正则实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xpath/" rel="tag">Xpath</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastlane/" rel="tag">fastlane</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fir/" rel="tag">fir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">ftp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gps/" rel="tag">gps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-hello-world/" rel="tag">hexo hello world</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E6%95%99%E7%A8%8B/" rel="tag">hexo教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-flutter/" rel="tag">iOS flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/metadata-extractor/" rel="tag">metadata-extractor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgyer/" rel="tag">pgyer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xcodeproj/" rel="tag">xcodeproj</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87%E5%88%B0%E6%96%87%E4%BB%B6/" rel="tag">下载图片到文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" rel="tag">表单验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">Java正则实现</a> <a href="/tags/Xpath/" style="font-size: 10px;">Xpath</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/fastlane/" style="font-size: 10px;">fastlane</a> <a href="/tags/fir/" style="font-size: 10px;">fir</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gps/" style="font-size: 10px;">gps</a> <a href="/tags/hexo-hello-world/" style="font-size: 10px;">hexo hello world</a> <a href="/tags/hexo%E6%95%99%E7%A8%8B/" style="font-size: 10px;">hexo教程</a> <a href="/tags/iOS-flutter/" style="font-size: 10px;">iOS flutter</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/metadata-extractor/" style="font-size: 10px;">metadata-extractor</a> <a href="/tags/pgyer/" style="font-size: 10px;">pgyer</a> <a href="/tags/xcodeproj/" style="font-size: 10px;">xcodeproj</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87%E5%88%B0%E6%96%87%E4%BB%B6/" style="font-size: 10px;">下载图片到文件</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">表单验证</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/07/fluwx/">fluwx</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/27/%E4%B8%89%E6%A3%B5%E6%A0%91/">三棵树</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/06/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">代码片段</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/30/Centos-7-docker-ftp/">Centos 7 docker ftp</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
