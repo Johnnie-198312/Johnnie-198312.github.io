@@ -64,6 +64,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-移动App混合开发之Flutter篇-3-Android工程配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-01-11T07:59:35.000Z" itemprop="datePublished">2021-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇(3)---Android工程配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先要保证谷歌服务畅通访问,这个是程序员基本技能.</p>
+<h1 id="将-Flutter-module-集成到-Android-项目"><a href="#将-Flutter-module-集成到-Android-项目" class="headerlink" title="将 Flutter module 集成到 Android 项目"></a>将 Flutter module 集成到 Android 项目</h1><p>首先到Flutter工程里面执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter build aar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">master_flutter git:(main) flutter build aar</span><br><span class="line">Running &quot;flutter pub get&quot; in master_flutter...                     765ms</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarDebug&#39;... Done                     63.9s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarProfile&#39;... Done                   49.8s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;...</span><br><span class="line">Running Gradle task &#39;assembleAarRelease&#39;... Done                   45.4s</span><br><span class="line">✓ Built build&#x2F;host&#x2F;outputs&#x2F;repo.</span><br><span class="line"></span><br><span class="line">Consuming the Module</span><br><span class="line">  1. Open &lt;host&gt;&#x2F;app&#x2F;build.gradle</span><br><span class="line">  2. Ensure you have the repositories configured, otherwise add them:</span><br><span class="line"></span><br><span class="line">      String storageUrl &#x3D; System.env.FLUTTER_STORAGE_BASE_URL ?: &quot;https:&#x2F;&#x2F;storage.googleapis.com&quot;</span><br><span class="line">      repositories &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;&#x2F;Users&#x2F;admin&#x2F;workspace&#x2F;native-mix-cross-platform&#x2F;flutter&#x2F;Master-Flutter&#x2F;master_flutter&#x2F;build&#x2F;host&#x2F;outputs&#x2F;repo&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url &#39;$storageUrl&#x2F;download.flutter.io&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  3. Make the host app depend on the Flutter module:</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">      debugImplementation &#39;com.example.master_flutter:flutter_debug:1.0&#39;</span><br><span class="line">      profileImplementation &#39;com.example.master_flutter:flutter_profile:1.0&#39;</span><br><span class="line">      releaseImplementation &#39;com.example.master_flutter:flutter_release:1.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  4. Add the &#96;profile&#96; build type:</span><br><span class="line"></span><br><span class="line">    android &#123;</span><br><span class="line">      buildTypes &#123;</span><br><span class="line">        profile &#123;</span><br><span class="line">          initWith debug</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">To learn more, visit https:&#x2F;&#x2F;flutter.dev&#x2F;go&#x2F;build-aar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个先别关,等下要用.</p>
+<p>如何新建Flutter工程,请点击 移动App混合开发之Flutter篇-1-Flutter工程配置 <a target="_blank" rel="noopener" href="https://johnnie-198312.github.io/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-1-Flutter%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/">移动App混合开发之Flutter篇-1-Flutter工程配置</a> 构建的。</p>
+<p>新建Android工程</p>
+<p>app/build.gradle里面新增配置,会用到flutter build aar的内容</p>
+<p>别搞错了 必须是Module的gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">String storageUrl &#x3D; System.env.FLUTTER_STORAGE_BASE_URL ?: &quot;https:&#x2F;&#x2F;storage.googleapis.com&quot;</span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &#39;&#x2F;Users&#x2F;admin&#x2F;workspace&#x2F;native-mix-cross-platform&#x2F;flutter&#x2F;Master-Flutter&#x2F;master_flutter&#x2F;build&#x2F;host&#x2F;outputs&#x2F;repo&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &#39;https:&#x2F;&#x2F;storage.googleapis.com&#x2F;download.flutter.io&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line"></span><br><span class="line">    implementation &#39;androidx.appcompat:appcompat:1.1.0&#39;</span><br><span class="line">    implementation &#39;com.google.android.material:material:1.1.0&#39;</span><br><span class="line">    implementation &#39;androidx.constraintlayout:constraintlayout:1.1.3&#39;</span><br><span class="line">    testImplementation &#39;junit:junit:4.+&#39;</span><br><span class="line">    androidTestImplementation &#39;androidx.test.ext:junit:1.1.1&#39;</span><br><span class="line">    androidTestImplementation &#39;androidx.test.espresso:espresso-core:3.2.0&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;    flutter</span><br><span class="line">    debugImplementation &#39;com.example.master_flutter:flutter_debug:1.0&#39;</span><br><span class="line">    profileImplementation &#39;com.example.master_flutter:flutter_profile:1.0&#39;</span><br><span class="line">    releaseImplementation &#39;com.example.master_flutter:flutter_release:1.0&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;    flutter</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-161303.png" alt="Module.gradle配置"></p>
+<h1 id="在-Android-应用中添加-Flutter-页面"><a href="#在-Android-应用中添加-Flutter-页面" class="headerlink" title="在 Android 应用中添加 Flutter 页面"></a>在 Android 应用中添加 Flutter 页面</h1><p>AndroidManifest.xml注册activity,这是Android基础知识,建议去youtube上看一遍Android教程,虽然不写Android,但是基本常识还是要知道的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">  android:name&#x3D;&quot;io.flutter.embedding.android.FlutterActivity&quot;</span><br><span class="line">  android:theme&#x3D;&quot;@style&#x2F;LaunchTheme&quot;</span><br><span class="line">  android:configChanges&#x3D;&quot;orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode&quot;</span><br><span class="line">  android:hardwareAccelerated&#x3D;&quot;true&quot;</span><br><span class="line">  android:windowSoftInputMode&#x3D;&quot;adjustResize&quot;</span><br><span class="line">  &#x2F;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-160306.png" alt="activity"></p>
+<p>这个时候 android:theme=”@style/LaunchTheme” 会爆红</p>
+<p>别紧张,src/main/res/values/strings.xml里面新增一个style</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;style name&#x3D;&quot;LaunchTheme&quot; parent&#x3D;&quot;@android:style&#x2F;Theme.Black.NoTitleBar&quot;&gt;</span><br><span class="line">        &lt;!-- Show a splash screen on the activity. Automatically removed when</span><br><span class="line">             Flutter draws its first frame --&gt;</span><br><span class="line">&lt;!--        &lt;item name&#x3D;&quot;android:windowBackground&quot;&gt;@drawable&#x2F;launch_background&lt;&#x2F;item&gt;--&gt;</span><br><span class="line">        &lt;item name&#x3D;&quot;android:windowFullscreen&quot;&gt;true&lt;&#x2F;item&gt;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-173551.png" alt="style"></p>
+<p>这个时候安装官方的教程来,需要你在 src/main/res/layout/activity_main.xml新增一个按钮, 而且默认肯定是 ConstraintLayout布局,搞半天你也不知道怎么玩,更别提还要findViewById, 咱不费那劲,直接在MainActivity的onCreate的方法里面加一行代码就行,先跑起来再说嘛.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">startActivity(FlutterActivity.createDefaultIntent(this));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>可能的导包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line">import io.flutter.embedding.android.FlutterActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/WX20210111-175107.png" alt="MainActivity"></p>
+<p><img src="http://johnnie-198312.github.io/images/Flutter-Native-Mix/Jietu20210111-174532.jpg" alt="集成效果图"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-3-Android%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" data-id="ckto3u20d000gfz0c934n9ppq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-移动App混合开发之Flutter篇-2-iOS工程配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/01/11/%E7%A7%BB%E5%8A%A8App%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E4%B9%8BFlutter%E7%AF%87-2-iOS%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/" class="article-date">
@@ -651,7 +725,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
     </div>
   </div>
 
@@ -662,6 +736,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/08/28/%E7%A7%8D%E8%8D%89%E8%AE%A1%E5%88%92/">种草计划</a>
+          </li>
         
           <li>
             <a href="/2023/06/07/fluwx/">fluwx</a>
@@ -677,10 +755,6 @@
         
           <li>
             <a href="/2021/09/30/Centos-7-docker-ftp/">Centos 7 docker ftp</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/22/hello-world/">Hello World</a>
           </li>
         
       </ul>
